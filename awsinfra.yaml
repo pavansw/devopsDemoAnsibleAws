@@ -1,0 +1,15 @@
+---
+ - name: launch ec2 instance
+   hosts: localhost
+   tasks:
+      - name: ec2 instance create
+        ec2:
+          key_name: newkey
+          instance_type: t2.micro
+          image: ami-02354e95b39ca8dec
+          region: us-east-1
+          count: 2
+          wait: yes
+          instance_tags:
+              Name: ansible
+
